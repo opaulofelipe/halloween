@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#120f1a">
+  <meta name="description" content="Quiz de Halloween para dois jogadores no mesmo celular: uma roleta, 99 perguntas e uma noite para vencer.">
+  <title>A Noite Decide · Quiz de Halloween</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <main class="app">
+    <header class="brand">
+      <svg class="brand-symbol" viewBox="0 0 108 55" fill="none" aria-hidden="true">
+        <circle cx="52" cy="27" r="24" fill="#FFCC82"/>
+        <circle cx="62" cy="19" r="22" fill="#171222"/>
+        <path d="M4 28l12-8 12 7 9-6 6 12-13-5-9 7-10-4-7 4V28zm63 9 12-9 9 5 10-12 6 11 3-2-2 14-11-7-9 4-9-4z" fill="#9B79AB"/>
+        <circle cx="13" cy="6" r="2" fill="#DDAF77"/><circle cx="93" cy="9" r="1.5" fill="#DDAF77"/>
+      </svg>
+      <span class="eyebrow">Uma noite. Dois destinos.</span>
+      <h1>A Noite <em>Decide.</em></h1>
+      <p class="subtitle">O jogo de perguntas onde até o conhecimento tem seus riscos.</p>
+    </header>
+
+    <p id="storage-warning" class="storage-warning" role="alert" hidden>O navegador bloqueou o armazenamento local. A partida funciona, mas o progresso poderá ser perdido ao atualizar a página.</p>
+
+    <section id="lobby-screen" class="screen lobby-screen" aria-labelledby="lobby-title">
+      <div class="panel lobby-panel">
+        <div class="lobby-icon" aria-hidden="true">✦</div>
+        <span class="eyebrow panel-eyebrow">Antes que a noite comece</span>
+        <h2 id="lobby-title">Quem vai encarar o destino?</h2>
+        <p class="section-description">Dê um nome aos dois participantes. Vocês jogam em turnos, no mesmo celular.</p>
+        <form id="lobby-form" novalidate>
+          <div class="player-inputs">
+            <div class="input-card">
+              <label for="player-one-name"><span class="player-icon player-icon-one">01</span> Jogador 1</label>
+              <input id="player-one-name" type="text" maxlength="20" autocomplete="off" placeholder="Digite o primeiro nome" required>
+            </div>
+            <div class="input-card">
+              <label for="player-two-name"><span class="player-icon player-icon-two">02</span> Jogador 2</label>
+              <input id="player-two-name" type="text" maxlength="20" autocomplete="off" placeholder="Digite o segundo nome" required>
+            </div>
+          </div>
+          <p id="lobby-error" class="form-error" role="alert" hidden></p>
+          <button class="btn btn-primary" type="submit">Começar a noite <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="rule-strip" aria-label="Regras do jogo">
+          <div><strong>+2</strong><span>Acertou</span></div>
+          <div><strong>−1</strong><span>Errou</span></div>
+          <div><strong>16</strong><span>Para vencer</span></div>
+        </div>
+      </div>
+      <p class="bottom-hint">99 perguntas · 33 de livros · 33 de filmes · 33 de séries</p>
+    </section>
+
+    <div id="match-area" hidden>
+      <section class="scoreboard" aria-label="Pontuação dos jogadores">
+        <article id="player-card-0" class="score-card">
+          <div class="score-top"><span id="player-label-0" class="score-name"></span><span class="active-indicator" aria-hidden="true"></span></div>
+          <div class="score-line"><strong id="score-0" class="score-number">0</strong><span class="score-target">/ 16 pontos</span></div>
+          <div class="progress-track"><div id="bar-0" class="progress-fill"></div></div>
+        </article>
+        <article id="player-card-1" class="score-card">
+          <div class="score-top"><span id="player-label-1" class="score-name"></span><span class="active-indicator" aria-hidden="true"></span></div>
+          <div class="score-line"><strong id="score-1" class="score-number">0</strong><span class="score-target">/ 16 pontos</span></div>
+          <div class="progress-track"><div id="bar-1" class="progress-fill"></div></div>
+        </article>
+      </section>
+
+      <section class="panel game-panel" aria-label="Jogo">
+        <div class="game-meta"><span id="turn-label" class="turn-chip"></span><span id="round-label" class="round-label"></span></div>
+
+        <div id="wheel-screen" class="screen">
+          <div class="screen-heading"><span class="eyebrow">A escolha é da sorte</span><h2>Gire a roleta.</h2><p>O tema escolhido revela uma nova pergunta.</p></div>
+          <div class="wheel-zone">
+            <div class="wheel-halo" role="img" aria-label="Roleta com três fatias: livros, filmes e séries. A seta fixa na parte superior indica a categoria sorteada.">
+              <div id="wheel" class="wheel">
+                <div class="slice-label" style="--at:60deg;--reverse:-60deg"><span class="slice-emoji">📚</span><span>Livros</span></div>
+                <div class="slice-label" style="--at:180deg;--reverse:-180deg"><span class="slice-emoji">🎬</span><span>Filmes</span></div>
+                <div class="slice-label" style="--at:300deg;--reverse:-300deg"><span class="slice-emoji">📺</span><span>Séries</span></div>
+                <div class="wheel-hub" aria-hidden="true">✦</div>
+              </div>
+              <div class="wheel-pointer" aria-hidden="true"></div>
+            </div>
+          </div>
+          <button id="spin-button" type="button" class="btn btn-primary spin-button"><span id="spin-button-label">✦ Girar a roleta</span></button>
+          <p id="wheel-status" class="bottom-hint" role="status" aria-live="polite">É a sua vez. Descubra o tema!</p>
+        </div>
+
+        <div id="question-screen" class="screen" hidden>
+          <div class="question-header"><span id="category-badge" class="category-badge"></span><span id="question-index" class="question-index"></span></div>
+          <h2 id="question-text" class="question-title"></h2>
+          <div id="answer-list" class="answer-list" role="group" aria-label="Alternativas da pergunta"></div>
+          <div id="answer-feedback" class="feedback" role="status" aria-live="polite" hidden>
+            <strong id="feedback-title"></strong>
+            <p id="feedback-description"></p>
+          </div>
+          <button id="continue-button" class="btn btn-primary continue-button" type="button" hidden>Passar a vez →</button>
+          <p id="question-hint" class="question-hint">Escolha uma única alternativa. Não é possível trocar sua resposta.</p>
+        </div>
+
+        <div id="victory-screen" class="screen victory-screen" hidden>
+          <div class="victory-illustration" aria-hidden="true">🏆</div>
+          <span class="eyebrow">A noite tem um vencedor</span>
+          <h2 id="victory-title"></h2>
+          <p id="victory-description"></p>
+          <div id="final-score" class="final-score"></div>
+          <button id="rematch-button" class="btn btn-primary" type="button">Revanche com os mesmos nomes ↻</button>
+        </div>
+      </section>
+
+      <div class="match-footer"><span class="autosave"><span class="autosave-dot" aria-hidden="true"></span><span id="save-label">Partida salva automaticamente</span></span><button id="reset-button" class="link-button" type="button">Zerar tudo e trocar nomes</button></div>
+      <p class="rules-note">Acerto <strong>+2</strong> · Erro <strong>−1</strong> · Primeiro a alcançar <strong>16 pontos</strong> vence. Os pontos podem ficar negativos.</p>
+    </div>
+    <footer class="site-footer">ESTA NOITE PERTENCE A QUEM SABE MAIS ✦</footer>
+  </main>
+
+  <div id="reset-dialog" class="dialog-backdrop" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="reset-dialog-title" aria-describedby="reset-dialog-description">
+      <span class="eyebrow">Última chance</span>
+      <h2 id="reset-dialog-title">Apagar tudo?</h2>
+      <p id="reset-dialog-description">Você perderá os nomes, os pontos, as perguntas respondidas e o progresso salvo. O jogo voltará ao lobby.</p>
+      <div class="dialog-buttons"><button id="cancel-reset" class="btn btn-secondary" type="button">Cancelar</button><button id="confirm-reset" class="btn btn-danger" type="button">Apagar e recomeçar</button></div>
+    </div>
+  </div>
+</body>
+</html>
