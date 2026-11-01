@@ -755,7 +755,7 @@ function save() {
 }
 
 function validSave(s) {
-  if (!s || s.![2, 3].includes(s.version) || !Array.isArray(s.names) || s.names.length !== 2 ||
+  if (!s || ![2, 3].includes(s.version) || !Array.isArray(s.names) || s.names.length !== 2 ||
       s.names.some(name => typeof name !== 'string' || !name.trim() || name.length > 20) ||
       !Array.isArray(s.scores) || s.scores.length !== 2 ||
       s.scores.some(n => !Number.isSafeInteger(n) || n > 100 || n < -10000) ||
