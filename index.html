@@ -3,36 +3,67 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#120f1a">
-  <meta name="description" content="Quiz de Halloween para dois jogadores no mesmo celular: uma roleta, 99 perguntas e uma noite para vencer.">
+  <meta name="theme-color" content="#0a0f18">
+  <meta name="description" content="Quiz de terror para dois jogadores no mesmo celular: roleta, 99 perguntas de livros, filmes e séries, e uma noite para sobreviver.">
   <title>A Noite Decide · Quiz de Halloween</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=3">
+  <script src="script.js?v=3" defer></script>
 </head>
 <body>
   <div class="ambient ambient-one" aria-hidden="true"></div>
   <div class="ambient ambient-two" aria-hidden="true"></div>
   <main class="app">
     <header class="brand">
-      <svg class="brand-symbol" viewBox="0 0 108 55" fill="none" aria-hidden="true">
-        <circle cx="52" cy="27" r="24" fill="#FFCC82"/>
-        <circle cx="62" cy="19" r="22" fill="#171222"/>
-        <path d="M4 28l12-8 12 7 9-6 6 12-13-5-9 7-10-4-7 4V28zm63 9 12-9 9 5 10-12 6 11 3-2-2 14-11-7-9 4-9-4z" fill="#9B79AB"/>
-        <circle cx="13" cy="6" r="2" fill="#DDAF77"/><circle cx="93" cy="9" r="1.5" fill="#DDAF77"/>
+      <svg class="halloween-scene" viewBox="0 0 680 205" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <radialGradient id="moon-halo"><stop stop-color="#ffcc84" stop-opacity=".28"/><stop offset="1" stop-color="#ffcc84" stop-opacity="0"/></radialGradient>
+          <linearGradient id="horizon" x1="340" y1="110" x2="340" y2="205" gradientUnits="userSpaceOnUse"><stop stop-color="#402840"/><stop offset="1" stop-color="#17131e"/></linearGradient>
+        </defs>
+        <circle cx="451" cy="69" r="78" fill="url(#moon-halo)"/>
+        <circle cx="451" cy="69" r="46" fill="#FFCB83"/>
+        <circle cx="434" cy="51" r="8" fill="#D7A26D" opacity=".33"/>
+        <circle cx="466" cy="86" r="11" fill="#D7A26D" opacity=".22"/>
+        <circle cx="473" cy="55" r="5" fill="#D7A26D" opacity=".25"/>
+        <g fill="#F9DCA9" opacity=".9"><circle cx="86" cy="47" r="2"/><circle cx="130" cy="22" r="1.5"/><circle cx="231" cy="39" r="2"/><circle cx="547" cy="26" r="1.7"/><circle cx="605" cy="65" r="2"/><path d="M569 98v-8m-4 4h8M198 14V6m-4 4h8" stroke="#F9DCA9" stroke-linecap="round"/></g>
+        <g class="scene-bats" fill="#100E19">
+          <path d="M298 45q-13-13-24-3 4-1 8 5-9-3-12 7 12-5 21 6 3-9 7-8 4-1 7 8 9-11 21-6-3-10-12-7 4-6 8-5-11-10-24 3z"/>
+          <path d="M538 103q-10-9-18-3 5 0 6 5-6-2-10 4 10-3 16 5 2-6 6-7 4 1 6 7 7-8 16-5-3-6-10-4 1-5 6-5-8-6-18 3z"/>
+          <path d="M177 76q-7-6-12-2 3 0 4 3-5-1-7 3 6-2 11 4 1-5 4-5 2 0 4 5 5-6 11-4-3-4-7-3 1-3 4-3-6-4-12 2z"/>
+        </g>
+        <path d="M0 169Q98 126 197 164q95-38 164-15 89-40 164 5 82-28 155 9v42H0v-36z" fill="url(#horizon)" opacity=".65"/>
+        <g fill="#0F1119">
+          <path d="M250 167V86h18V66l12-12 12 12v20h17V52l16-19 16 19v37h19V68l11-13 11 13v99H250z"/>
+          <path d="M240 88l37-31 37 31h-74zM299 54l26-33 26 33h-52zM350 70l22-27 22 27h-44z"/>
+          <rect x="233" y="158" width="167" height="47"/>
+          <path d="M300 205v-35a22 22 0 0144 0v35H300z" fill="#261C27"/>
+        </g>
+        <g fill="#F0AC61" opacity=".9"><rect x="270" y="100" width="11" height="20" rx="5.5"/><rect x="317" y="67" width="12" height="20" rx="6"/><rect x="367" y="99" width="10" height="19" rx="5"/><rect x="354" y="133" width="10" height="17" rx="5"/></g>
+        <g stroke="#0F1119" stroke-width="7" stroke-linecap="round">
+          <path d="M120 193V84m0 42-35-27m35 18 23-36m-23 65-48-19m48 13 39-24M73 130 60 104M143 81l17-13"/>
+          <path d="M569 199V92m0 37-38-32m38 20 38-44m-38 69 45-21m-83-25-11-22"/>
+        </g>
+        <path d="M0 189q83-30 154-7 85-20 173-4 110-19 186 1 80-18 167 8v18H0v-16z" fill="#0A1018"/>
+        <g fill="#33303A" stroke="#71636B" stroke-width="2">
+          <path d="M180 187v-27a13 13 0 0126 0v27z"/><path d="M487 185v-29a14 14 0 0128 0v29z"/>
+        </g>
+        <g stroke="#94838D" stroke-width="2" opacity=".5"><path d="M194 158v16m-6-11h12M501 155v16m-6-11h12"/></g>
+        <g class="scene-pumpkin"><ellipse cx="82" cy="184" rx="27" ry="20" fill="#E67D37"/><ellipse cx="82" cy="184" rx="15" ry="20" fill="#F39B48"/><path d="M80 163l3-10 8-2" stroke="#66804F" stroke-width="5" stroke-linecap="round"/><path d="M68 179l6-7 3 10m15-3-6-7-3 10" fill="#20151D"/><path d="M67 189q15 11 30 0-15 3-30 0z" fill="#20151D"/></g>
+        <g class="scene-pumpkin"><ellipse cx="597" cy="188" rx="22" ry="17" fill="#D77339"/><ellipse cx="597" cy="188" rx="11" ry="17" fill="#F29B49"/><path d="M597 173l2-8 7-3" stroke="#66804F" stroke-width="4" stroke-linecap="round"/><path d="M587 185l5-5 1 7m9-2 4-5 2 7" fill="#20151D"/><path d="M588 193l9 5 9-5" stroke="#20151D" stroke-width="3" stroke-linecap="round"/></g>
+        <path d="M0 203q88-11 170-4 170-8 272 0 120-8 238 4" stroke="#A98A91" stroke-opacity=".17" stroke-width="9"/>
       </svg>
-      <span class="eyebrow">Uma noite. Dois destinos.</span>
+      <span class="eyebrow">Uma noite de arrepiar · Especial de Halloween</span>
       <h1>A Noite <em>Decide.</em></h1>
-      <p class="subtitle">O jogo de perguntas onde até o conhecimento tem seus riscos.</p>
+      <p class="subtitle">99 desafios de terror. Livros, filmes e séries. Só um sobreviverá no placar.</p>
     </header>
 
     <p id="storage-warning" class="storage-warning" role="alert" hidden>O navegador bloqueou o armazenamento local. A partida funciona, mas o progresso poderá ser perdido ao atualizar a página.</p>
 
     <section id="lobby-screen" class="screen lobby-screen" aria-labelledby="lobby-title">
-      <div class="panel lobby-panel">
+      <div class="panel lobby-panel"><svg class="web-corner" viewBox="0 0 120 120" fill="none" aria-hidden="true"><g stroke="#E6BE99" stroke-width="1.15" opacity=".9"><path d="M0 0h116M0 0v116M0 0l105 105M0 0L118 43M0 0l43 118"/><path d="M18 0Q20 18 0 18M41 0Q45 40 0 41M65 0Q71 69 0 65M93 0Q105 105 0 93"/><path d="M22 9Q26 18 10 24M42 14Q52 43 14 43M62 20Q75 65 20 62"/></g></svg>
         <div class="lobby-icon" aria-hidden="true">✦</div>
-        <span class="eyebrow panel-eyebrow">Antes que a noite comece</span>
-        <h2 id="lobby-title">Quem vai encarar o destino?</h2>
-        <p class="section-description">Dê um nome aos dois participantes. Vocês jogam em turnos, no mesmo celular.</p>
+        <span class="eyebrow panel-eyebrow">Entre por sua conta e risco</span>
+        <h2 id="lobby-title">Quem vai sobreviver à noite?</h2>
+        <p class="section-description">Escolham seus nomes. Dois jogadores, um celular e perguntas de arrepiar.</p>
         <form id="lobby-form" novalidate>
           <div class="player-inputs">
             <div class="input-card">
@@ -45,7 +76,7 @@
             </div>
           </div>
           <p id="lobby-error" class="form-error" role="alert" hidden></p>
-          <button class="btn btn-primary" type="submit">Começar a noite <span aria-hidden="true">→</span></button>
+          <button class="btn btn-primary" type="submit">Entrar na mansão <span aria-hidden="true">→</span></button>
         </form>
         <div class="rule-strip" aria-label="Regras do jogo">
           <div><strong>+2</strong><span>Acertou</span></div>
@@ -53,7 +84,7 @@
           <div><strong>16</strong><span>Para vencer</span></div>
         </div>
       </div>
-      <p class="bottom-hint">99 perguntas · 33 de livros · 33 de filmes · 33 de séries</p>
+      <p class="bottom-hint">99 perguntas de terror · 33 livros · 33 filmes · 33 séries</p>
     </section>
 
     <div id="match-area" hidden>
@@ -70,11 +101,11 @@
         </article>
       </section>
 
-      <section class="panel game-panel" aria-label="Jogo">
+      <section class="panel game-panel" aria-label="Jogo"><svg class="web-corner" viewBox="0 0 120 120" fill="none" aria-hidden="true"><g stroke="#E6BE99" stroke-width="1.15" opacity=".9"><path d="M0 0h116M0 0v116M0 0l105 105M0 0L118 43M0 0l43 118"/><path d="M18 0Q20 18 0 18M41 0Q45 40 0 41M65 0Q71 69 0 65M93 0Q105 105 0 93"/><path d="M22 9Q26 18 10 24M42 14Q52 43 14 43M62 20Q75 65 20 62"/></g></svg>
         <div class="game-meta"><span id="turn-label" class="turn-chip"></span><span id="round-label" class="round-label"></span></div>
 
         <div id="wheel-screen" class="screen">
-          <div class="screen-heading"><span class="eyebrow">A escolha é da sorte</span><h2>Gire a roleta.</h2><p>O tema escolhido revela uma nova pergunta.</p></div>
+          <div class="screen-heading"><span class="eyebrow">Que a sorte tenha piedade</span><h2>Escolha seu pesadelo.</h2><p>A roleta decide entre livros, filmes e séries de terror.</p></div>
           <div class="wheel-zone">
             <div class="wheel-halo" role="img" aria-label="Roleta com três fatias: livros, filmes e séries. A seta fixa na parte superior indica a categoria sorteada.">
               <div id="wheel" class="wheel">
@@ -86,8 +117,8 @@
               <div class="wheel-pointer" aria-hidden="true"></div>
             </div>
           </div>
-          <button id="spin-button" type="button" class="btn btn-primary spin-button"><span id="spin-button-label">✦ Girar a roleta</span></button>
-          <p id="wheel-status" class="bottom-hint" role="status" aria-live="polite">É a sua vez. Descubra o tema!</p>
+          <button id="spin-button" type="button" class="btn btn-primary spin-button"><span id="spin-button-label">🎃 Girar a roleta</span></button>
+          <p id="wheel-status" class="bottom-hint" role="status" aria-live="polite">É a sua vez. Que terror te espera?</p>
         </div>
 
         <div id="question-screen" class="screen" hidden>
@@ -103,8 +134,8 @@
         </div>
 
         <div id="victory-screen" class="screen victory-screen" hidden>
-          <div class="victory-illustration" aria-hidden="true">🏆</div>
-          <span class="eyebrow">A noite tem um vencedor</span>
+          <div class="victory-illustration" aria-hidden="true">🎃</div>
+          <span class="eyebrow">Um sobrevivente da noite</span>
           <h2 id="victory-title"></h2>
           <p id="victory-description"></p>
           <div id="final-score" class="final-score"></div>
@@ -115,7 +146,7 @@
       <div class="match-footer"><span class="autosave"><span class="autosave-dot" aria-hidden="true"></span><span id="save-label">Partida salva automaticamente</span></span><button id="reset-button" class="link-button" type="button">Zerar tudo e trocar nomes</button></div>
       <p class="rules-note">Acerto <strong>+2</strong> · Erro <strong>−1</strong> · Primeiro a alcançar <strong>16 pontos</strong> vence. Os pontos podem ficar negativos.</p>
     </div>
-    <footer class="site-footer">ESTA NOITE PERTENCE A QUEM SABE MAIS ✦</footer>
+    <footer class="site-footer">ENTRE TEIAS, SOMBRAS E HISTÓRIAS DE ARREPIAR ✦</footer>
   </main>
 
   <div id="reset-dialog" class="dialog-backdrop" hidden>
